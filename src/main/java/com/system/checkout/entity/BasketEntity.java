@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import com.system.checkout.model.BasketDTO;
 import com.system.checkout.type.CheckoutStatus;
@@ -41,6 +42,7 @@ public class BasketEntity {
 	@Enumerated(EnumType.STRING)
 	private CheckoutStatus status;
 
+	@Lob
 	@Convert(converter = CustomAttributeConverter.class)
 	private BasketDTO summary;
 
