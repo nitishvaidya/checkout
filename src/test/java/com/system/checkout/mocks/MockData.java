@@ -100,6 +100,7 @@ public class MockData {
 		basketEntity.setDiscounts(new ArrayList<>());
 		basketEntity.setDeals(new ArrayList<>());
 		basketEntity.setProducts(products);
+		basketEntity.setTotalPrice(BigDecimal.ZERO);
 		basketEntity.setLastUpdatedAt(LocalDateTime.now());
 		basketEntity.setStatus(CheckoutStatus.BASKET);
 		return basketEntity;
