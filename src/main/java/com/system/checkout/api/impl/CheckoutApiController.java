@@ -21,13 +21,13 @@ public class CheckoutApiController implements CheckoutApi {
 	@Override
 	public ResponseEntity<?> update(UUID productId, ProductCheckoutDTO productCheckoutDTO) throws CustomException {
 		checkoutService.update(productId, productCheckoutDTO);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(null);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
 	}
 
 	@Override
 	public ResponseEntity<?> delete(UUID productId) throws CustomException {
 		checkoutService.delete(productId);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(null);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
 	}
 
 	@Override

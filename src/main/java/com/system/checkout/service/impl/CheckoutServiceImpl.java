@@ -133,6 +133,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 		BasketEntity basketEntity = new BasketEntity();
 		basketEntity.setId(UUID.randomUUID());
 		basketEntity.setStatus(CheckoutStatus.BASKET);
+		basketEntity.setTotalPrice(BigDecimal.ZERO);
 		basketEntity.setProducts(new HashMap<>());
 		basketEntity.setDeals(new ArrayList<>());
 		basketEntity.setDiscounts(new ArrayList<>());
@@ -279,7 +280,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 		} catch (CustomException e) {
 			System.out.println(e.getMessage());
 		}
-		BigDecimal totalPrice = calculatePrice(price, quantity, discountEntity);
+		BigDecimal totalPrice = basketEntity.getTotalPrice().add(calculatePrice(price, quantity, discountEntity));
 		basketEntity.setTotalPrice(totalPrice);
 
 	}
